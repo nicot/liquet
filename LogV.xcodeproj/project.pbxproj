@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B49402E22664E4400AE4230 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B49402D22664E4400AE4230 /* AppDelegate.swift */; };
+		0B49403022664E4400AE4230 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B49402F22664E4400AE4230 /* ViewController.swift */; };
+		0B49403222664E4400AE4230 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B49403122664E4400AE4230 /* Document.swift */; };
+		0B49403422664E4400AE4230 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B49403322664E4400AE4230 /* Assets.xcassets */; };
+		0B49403722664E4400AE4230 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B49403522664E4400AE4230 /* Main.storyboard */; };
+		0B49404322664E4400AE4230 /* LogVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B49404222664E4400AE4230 /* LogVTests.swift */; };
+		0B49404E22664E4400AE4230 /* LogVUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B49404D22664E4400AE4230 /* LogVUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0B49403F22664E4400AE4230 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B49402222664E4400AE4230 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B49402922664E4400AE4230;
+			remoteInfo = LogV;
+		};
+		0B49404A22664E4400AE4230 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B49402222664E4400AE4230 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B49402922664E4400AE4230;
+			remoteInfo = LogV;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0B49402A22664E4400AE4230 /* LogV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B49402D22664E4400AE4230 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0B49402F22664E4400AE4230 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0B49403122664E4400AE4230 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		0B49403322664E4400AE4230 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0B49403622664E4400AE4230 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0B49403822664E4400AE4230 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B49403922664E4400AE4230 /* LogV.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LogV.entitlements; sourceTree = "<group>"; };
+		0B49403E22664E4400AE4230 /* LogVTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogVTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B49404222664E4400AE4230 /* LogVTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogVTests.swift; sourceTree = "<group>"; };
+		0B49404422664E4400AE4230 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B49404922664E4400AE4230 /* LogVUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogVUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B49404D22664E4400AE4230 /* LogVUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogVUITests.swift; sourceTree = "<group>"; };
+		0B49404F22664E4400AE4230 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0B49402722664E4400AE4230 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B49403B22664E4400AE4230 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B49404622664E4400AE4230 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B49402122664E4400AE4230 = {
+			isa = PBXGroup;
+			children = (
+				0B49402C22664E4400AE4230 /* LogV */,
+				0B49404122664E4400AE4230 /* LogVTests */,
+				0B49404C22664E4400AE4230 /* LogVUITests */,
+				0B49402B22664E4400AE4230 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0B49402B22664E4400AE4230 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0B49402A22664E4400AE4230 /* LogV.app */,
+				0B49403E22664E4400AE4230 /* LogVTests.xctest */,
+				0B49404922664E4400AE4230 /* LogVUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0B49402C22664E4400AE4230 /* LogV */ = {
+			isa = PBXGroup;
+			children = (
+				0B49402D22664E4400AE4230 /* AppDelegate.swift */,
+				0B49402F22664E4400AE4230 /* ViewController.swift */,
+				0B49403122664E4400AE4230 /* Document.swift */,
+				0B49403322664E4400AE4230 /* Assets.xcassets */,
+				0B49403522664E4400AE4230 /* Main.storyboard */,
+				0B49403822664E4400AE4230 /* Info.plist */,
+				0B49403922664E4400AE4230 /* LogV.entitlements */,
+			);
+			path = LogV;
+			sourceTree = "<group>";
+		};
+		0B49404122664E4400AE4230 /* LogVTests */ = {
+			isa = PBXGroup;
+			children = (
+				0B49404222664E4400AE4230 /* LogVTests.swift */,
+				0B49404422664E4400AE4230 /* Info.plist */,
+			);
+			path = LogVTests;
+			sourceTree = "<group>";
+		};
+		0B49404C22664E4400AE4230 /* LogVUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0B49404D22664E4400AE4230 /* LogVUITests.swift */,
+				0B49404F22664E4400AE4230 /* Info.plist */,
+			);
+			path = LogVUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0B49402922664E4400AE4230 /* LogV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B49405222664E4400AE4230 /* Build configuration list for PBXNativeTarget "LogV" */;
+			buildPhases = (
+				0B49402622664E4400AE4230 /* Sources */,
+				0B49402722664E4400AE4230 /* Frameworks */,
+				0B49402822664E4400AE4230 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LogV;
+			productName = LogV;
+			productReference = 0B49402A22664E4400AE4230 /* LogV.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0B49403D22664E4400AE4230 /* LogVTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B49405522664E4400AE4230 /* Build configuration list for PBXNativeTarget "LogVTests" */;
+			buildPhases = (
+				0B49403A22664E4400AE4230 /* Sources */,
+				0B49403B22664E4400AE4230 /* Frameworks */,
+				0B49403C22664E4400AE4230 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0B49404022664E4400AE4230 /* PBXTargetDependency */,
+			);
+			name = LogVTests;
+			productName = LogVTests;
+			productReference = 0B49403E22664E4400AE4230 /* LogVTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0B49404822664E4400AE4230 /* LogVUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B49405822664E4400AE4230 /* Build configuration list for PBXNativeTarget "LogVUITests" */;
+			buildPhases = (
+				0B49404522664E4400AE4230 /* Sources */,
+				0B49404622664E4400AE4230 /* Frameworks */,
+				0B49404722664E4400AE4230 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0B49404B22664E4400AE4230 /* PBXTargetDependency */,
+			);
+			name = LogVUITests;
+			productName = LogVUITests;
+			productReference = 0B49404922664E4400AE4230 /* LogVUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0B49402222664E4400AE4230 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Nico T";
+				TargetAttributes = {
+					0B49402922664E4400AE4230 = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					0B49403D22664E4400AE4230 = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = 0B49402922664E4400AE4230;
+					};
+					0B49404822664E4400AE4230 = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = 0B49402922664E4400AE4230;
+					};
+				};
+			};
+			buildConfigurationList = 0B49402522664E4400AE4230 /* Build configuration list for PBXProject "LogV" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0B49402122664E4400AE4230;
+			productRefGroup = 0B49402B22664E4400AE4230 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0B49402922664E4400AE4230 /* LogV */,
+				0B49403D22664E4400AE4230 /* LogVTests */,
+				0B49404822664E4400AE4230 /* LogVUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0B49402822664E4400AE4230 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B49403422664E4400AE4230 /* Assets.xcassets in Resources */,
+				0B49403722664E4400AE4230 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B49403C22664E4400AE4230 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B49404722664E4400AE4230 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0B49402622664E4400AE4230 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B49403022664E4400AE4230 /* ViewController.swift in Sources */,
+				0B49402E22664E4400AE4230 /* AppDelegate.swift in Sources */,
+				0B49403222664E4400AE4230 /* Document.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B49403A22664E4400AE4230 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B49404322664E4400AE4230 /* LogVTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B49404522664E4400AE4230 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B49404E22664E4400AE4230 /* LogVUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0B49404022664E4400AE4230 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0B49402922664E4400AE4230 /* LogV */;
+			targetProxy = 0B49403F22664E4400AE4230 /* PBXContainerItemProxy */;
+		};
+		0B49404B22664E4400AE4230 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0B49402922664E4400AE4230 /* LogV */;
+			targetProxy = 0B49404A22664E4400AE4230 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0B49403522664E4400AE4230 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0B49403622664E4400AE4230 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0B49405022664E4400AE4230 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0B49405122664E4400AE4230 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		0B49405322664E4400AE4230 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LogV/LogV.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LogV/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = us.nicot.LogV;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		0B49405422664E4400AE4230 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LogV/LogV.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LogV/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = us.nicot.LogV;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		0B49405622664E4400AE4230 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LogVTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = us.nicot.LogVTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LogV.app/Contents/MacOS/LogV";
+			};
+			name = Debug;
+		};
+		0B49405722664E4400AE4230 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LogVTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = us.nicot.LogVTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LogV.app/Contents/MacOS/LogV";
+			};
+			name = Release;
+		};
+		0B49405922664E4400AE4230 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LogVUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = us.nicot.LogVUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = LogV;
+			};
+			name = Debug;
+		};
+		0B49405A22664E4400AE4230 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LogVUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = us.nicot.LogVUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = LogV;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0B49402522664E4400AE4230 /* Build configuration list for PBXProject "LogV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B49405022664E4400AE4230 /* Debug */,
+				0B49405122664E4400AE4230 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0B49405222664E4400AE4230 /* Build configuration list for PBXNativeTarget "LogV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B49405322664E4400AE4230 /* Debug */,
+				0B49405422664E4400AE4230 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0B49405522664E4400AE4230 /* Build configuration list for PBXNativeTarget "LogVTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B49405622664E4400AE4230 /* Debug */,
+				0B49405722664E4400AE4230 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0B49405822664E4400AE4230 /* Build configuration list for PBXNativeTarget "LogVUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B49405922664E4400AE4230 /* Debug */,
+				0B49405A22664E4400AE4230 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0B49402222664E4400AE4230 /* Project object */;
+}
