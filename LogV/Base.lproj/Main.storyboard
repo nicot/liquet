@@ -842,6 +842,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="foo" destination="AvE-4P-A3T" id="uml-eI-0kP"/>
                         <outlet property="tableView" destination="BhW-33-eAD" id="OLZ-if-YyR"/>
                     </connections>
                 </viewController>

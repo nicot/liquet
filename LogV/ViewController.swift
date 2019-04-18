@@ -10,6 +10,8 @@ import Cocoa
 
 class ViewController: NSViewController {
     @IBOutlet weak var tableView: NSTableView!
+    @IBOutlet weak var input: NSTextField!
+
     var data: FileDataSource? {
         didSet {
             loadView()
@@ -18,17 +20,11 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         tableView.dataSource = data
         tableView.delegate = data
-        
+
         // Do any additional setup after loading the view.
     }
-    
-//    override var representedObject: Any? {
-//        didSet {
-//            // Update the view, if already loaded.
-//        }
-//    }
 }
 

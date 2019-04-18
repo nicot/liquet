@@ -22,7 +22,7 @@ class Document: NSDocument {
             }
         }
     }
-    
+
     override func read(from fileWrapper: FileWrapper, ofType typeName: String) throws {
         self.dataSource = FileDataSource(from: fileWrapper)
     }
