@@ -10,13 +10,13 @@ import Cocoa
 
 class ViewController: NSViewController {
     @IBOutlet weak var tableView: NSTableView!
-    let data = FileDataSource()
+//    let data = FileDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.dataSource = data
-        tableView.delegate = data
+//        tableView.dataSource = data
+//        tableView.delegate = data
         
         // Do any additional setup after loading the view.
     }

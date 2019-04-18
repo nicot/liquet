@@ -9,6 +9,12 @@
 import Cocoa
 
 class FileDataSource: NSObject, NSTableViewDataSource, NSTableViewDelegate {
+    let fileWrapper: FileWrapper
+    
+    init(from fileWrapper: FileWrapper) {
+        self.fileWrapper = fileWrapper
+    }
+    
     func numberOfRows(in tableView: NSTableView) -> Int {
         return 300
     }
