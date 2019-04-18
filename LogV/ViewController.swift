@@ -10,7 +10,7 @@ import Cocoa
 
 class ViewController: NSViewController {
     @IBOutlet weak var tableView: NSTableView!
-//    let data = FileDataSource()
+    var data: FileDataSource?
     
     override func viewDidLoad() {
         super.viewDidLoad()

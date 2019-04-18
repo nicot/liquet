@@ -9,20 +9,22 @@
 import Cocoa
 
 class Document: NSDocument {
+    var dataSource: FileDataSource?
 
     override func makeWindowControllers() {
         // Returns the Storyboard that contains your Document window.
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-        let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Document Window Controller")) as! NSWindowController
-        self.addWindowController(windowController)
+        let wc = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Document Window Controller"))
+        if let windowController = wc as? NSWindowController {
+            self.addWindowController(windowController)
+            if let vc = windowController.contentViewController as? ViewController {
+                vc.data = self.dataSource
+            }
+        }
+        
     }
     
     override func read(from fileWrapper: FileWrapper, ofType typeName: String) throws {
-//         TODO support compressed files.
-//         if (typeName == "public.tar-archive" || typeName == "
-
-//        let vc = windowControllers[0].contentViewController as! ViewController
-//        Swift.print(vc.data)
-        let data = FileDataSource(from: fileWrapper)
+        self.dataSource = FileDataSource(from: fileWrapper)
     }
 }
