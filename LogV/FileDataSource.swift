@@ -26,6 +26,8 @@ class FileDataSource: NSObject, NSTableViewDataSource, NSTableViewDelegate, NSTe
     func numberOfRows(in tableView: NSTableView) -> Int {
         return contents.count
     }
+    
+    let attr = [NSAttributedString.Key.font: NSFont(name: "Menlo", size: CGFloat(12))!]
 
     func tableView(_ tableView: NSTableView,
                    viewFor tableColumn: NSTableColumn?,
@@ -33,19 +35,14 @@ class FileDataSource: NSObject, NSTableViewDataSource, NSTableViewDelegate, NSTe
         guard let col = tableColumn else { return nil }
         
         if (col.identifier == NSUserInterfaceItemIdentifier("Numbers")) {
-            let font = NSFont(name: "Menlo", size: CGFloat(12))!
-            let l = NSAttributedString(string: String(row), attributes: [NSAttributedString.Key.font: font])
-            let v = NSTextField(labelWithAttributedString: l)
-            return v
+            let l = NSAttributedString(string: String(row), attributes: attr)
+            return NSTextField(labelWithAttributedString: l)
         } else if (col.identifier == NSUserInterfaceItemIdentifier("Lines")) {
-            let c = contents[row]
-            let font = NSFont(name: "Menlo", size: CGFloat(12))!
-            let l = NSAttributedString(string: c, attributes: [NSAttributedString.Key.font: font])
-            let v = NSTextField(labelWithAttributedString: l)
-            return v
-        } else {
-            return nil
+            let l = NSAttributedString(string: contents[row], attributes: attr)
+            return NSTextField(labelWithAttributedString: l)
         }
+        
+        return nil
     }
     
     func controlTextDidChange(_ obj: Notification) {
