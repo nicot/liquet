@@ -8,17 +8,25 @@
 
 import Cocoa
 
+func loadFileContents(from file: FileWrapper) -> [String] {
+    let data: Data = file.regularFileContents!
+    let text = String(data: data, encoding: .utf8)!
+    return text.components(separatedBy: "\n")
+}
+
 class FileDataSource: NSObject, NSTableViewDataSource, NSTableViewDelegate {
-    let fileWrapper: FileWrapper
+    let file: FileWrapper
+    let contents: [String]
     
     init(from fileWrapper: FileWrapper) {
-        self.fileWrapper = fileWrapper
+        self.file = fileWrapper
+        self.contents = loadFileContents(from: fileWrapper)
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return 300
+        return contents.count
     }
-    
+
     func tableView(_ tableView: NSTableView,
                    viewFor tableColumn: NSTableColumn?,
                    row: Int) -> NSView? {
@@ -30,8 +38,9 @@ class FileDataSource: NSObject, NSTableViewDataSource, NSTableViewDelegate {
             let v = NSTextField(labelWithAttributedString: l)
             return v
         } else if (col.identifier == NSUserInterfaceItemIdentifier("Lines")) {
+            let c = contents[row]
             let font = NSFont(name: "Menlo", size: CGFloat(12))!
-            let l = NSAttributedString(string: "foo bar", attributes: [NSAttributedString.Key.font: font])
+            let l = NSAttributedString(string: c, attributes: [NSAttributedString.Key.font: font])
             let v = NSTextField(labelWithAttributedString: l)
             return v
         } else {

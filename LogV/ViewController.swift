@@ -10,21 +10,25 @@ import Cocoa
 
 class ViewController: NSViewController {
     @IBOutlet weak var tableView: NSTableView!
-    var data: FileDataSource?
+    var data: FileDataSource? {
+        didSet {
+            loadView()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        tableView.dataSource = data
-//        tableView.delegate = data
+        tableView.dataSource = data
+        tableView.delegate = data
         
         // Do any additional setup after loading the view.
     }
     
-    override var representedObject: Any? {
-        didSet {
-            // Update the view, if already loaded.
-        }
-    }
+//    override var representedObject: Any? {
+//        didSet {
+//            // Update the view, if already loaded.
+//        }
+//    }
 }
 

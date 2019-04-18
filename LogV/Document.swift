@@ -21,7 +21,6 @@ class Document: NSDocument {
                 vc.data = self.dataSource
             }
         }
-        
     }
     
     override func read(from fileWrapper: FileWrapper, ofType typeName: String) throws {
