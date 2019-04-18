@@ -14,7 +14,7 @@ func loadFileContents(from file: FileWrapper) -> [String] {
     return text.components(separatedBy: "\n")
 }
 
-class FileDataSource: NSObject, NSTableViewDataSource, NSTableViewDelegate {
+class FileDataSource: NSObject, NSTableViewDataSource, NSTableViewDelegate, NSTextFieldDelegate {
     let file: FileWrapper
     let contents: [String]
     
@@ -46,5 +46,9 @@ class FileDataSource: NSObject, NSTableViewDataSource, NSTableViewDelegate {
         } else {
             return nil
         }
+    }
+    
+    func controlTextDidChange(_ obj: Notification) {
+        print("foo")
     }
 }

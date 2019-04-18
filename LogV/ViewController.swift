@@ -11,7 +11,7 @@ import Cocoa
 class ViewController: NSViewController {
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var input: NSTextField!
-
+    
     var data: FileDataSource? {
         didSet {
             loadView()
@@ -23,6 +23,7 @@ class ViewController: NSViewController {
 
         tableView.dataSource = data
         tableView.delegate = data
+        input.delegate = data
 
         // Do any additional setup after loading the view.
     }
