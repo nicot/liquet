@@ -14,19 +14,55 @@ func loadFileContents(from file: FileWrapper) -> [String] {
     return text.components(separatedBy: "\n")
 }
 
+struct Line {
+    let nu: Int
+    let text: String
+}
+
+func runFilter(content: [String], filter: String) -> [Line] {
+    var lines: [Line] = []
+
+    for (index, line) in content.enumerated() {
+        if (line.contains(filter)) {
+            lines.append(Line(nu: index, text: line))
+        }
+    }
+
+    return lines
+}
+
+class Filtered {
+    let matchingLines: [Line]
+
+    init(
+        lines: [String],
+        filter: String
+    ) {
+        self.matchingLines = runFilter(content: lines, filter: filter)
+    }
+    
+    func getLineNumber(viewRow: Int) -> Int {
+        return matchingLines[viewRow].nu
+    }
+    
+    func getLine(viewRow: Int) -> String {
+        return matchingLines[viewRow].text
+    }
+}
+
 class FileDataSource: NSObject, NSTableViewDataSource, NSTableViewDelegate, NSTextFieldDelegate {
-    let file: FileWrapper
     let contents: [String]
+    var filtered: Filtered
     
     init(from fileWrapper: FileWrapper) {
-        self.file = fileWrapper
         self.contents = loadFileContents(from: fileWrapper)
+        self.filtered = Filtered(lines: contents, filter: "")
     }
-    
+
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return contents.count
+        return filtered.matchingLines.count
     }
-    
+
     let attr = [NSAttributedString.Key.font: NSFont(name: "Menlo", size: CGFloat(12))!]
 
     func tableView(_ tableView: NSTableView,
@@ -34,18 +70,22 @@ class FileDataSource: NSObject, NSTableViewDataSource, NSTableViewDelegate, NSTe
                    row: Int) -> NSView? {
         guard let col = tableColumn else { return nil }
         
+        let s: String
         if (col.identifier == NSUserInterfaceItemIdentifier("Numbers")) {
-            let l = NSAttributedString(string: String(row), attributes: attr)
-            return NSTextField(labelWithAttributedString: l)
+            s = String(row)
         } else if (col.identifier == NSUserInterfaceItemIdentifier("Lines")) {
-            let l = NSAttributedString(string: contents[row], attributes: attr)
-            return NSTextField(labelWithAttributedString: l)
+            s = contents[row]
+        } else {
+            s = "Uh oh."
         }
         
-        return nil
+        let l = NSAttributedString(string: s, attributes: attr)
+        return NSTextField(labelWithAttributedString: l)
     }
-    
-    func controlTextDidChange(_ obj: Notification) {
-        print("foo")
+
+    func controlTextDidEndEditing(_ obj: Notification) {
+        if let textField = obj.object as? NSTextField {
+            self.filtered = Filtered(lines: self.contents, filter: textField.stringValue)
+        }
     }
 }

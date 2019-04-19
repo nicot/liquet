@@ -8,6 +8,8 @@
 
 import Cocoa
 
+class Del: 
+
 class ViewController: NSViewController {
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var input: NSTextField!
