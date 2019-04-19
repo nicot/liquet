@@ -21,6 +21,10 @@ struct Line {
 
 func runFilter(content: [String], filter: String) -> [Line] {
     var lines: [Line] = []
+    
+    if filter == "" {
+        return content.enumerated().map { Line(nu: $0, text: $1) }
+    }
 
     for (index, line) in content.enumerated() {
         if (line.contains(filter)) {
@@ -50,7 +54,7 @@ class Filtered {
     }
 }
 
-class FileDataSource: NSObject, NSTableViewDataSource, NSTableViewDelegate, NSTextFieldDelegate {
+class FileDataSource: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     let contents: [String]
     var filtered: Filtered
     
@@ -72,20 +76,14 @@ class FileDataSource: NSObject, NSTableViewDataSource, NSTableViewDelegate, NSTe
         
         let s: String
         if (col.identifier == NSUserInterfaceItemIdentifier("Numbers")) {
-            s = String(row)
+            s = String(filtered.getLineNumber(viewRow: row))
         } else if (col.identifier == NSUserInterfaceItemIdentifier("Lines")) {
-            s = contents[row]
+            s = filtered.getLine(viewRow: row)
         } else {
             s = "Uh oh."
         }
         
         let l = NSAttributedString(string: s, attributes: attr)
         return NSTextField(labelWithAttributedString: l)
-    }
-
-    func controlTextDidEndEditing(_ obj: Notification) {
-        if let textField = obj.object as? NSTextField {
-            self.filtered = Filtered(lines: self.contents, filter: textField.stringValue)
-        }
     }
 }
