@@ -46,7 +46,7 @@ class Filtered {
     }
     
     func getLineNumber(viewRow: Int) -> Int {
-        return matchingLines[viewRow].nu
+        return matchingLines[viewRow].nu + 1
     }
     
     func getLine(viewRow: Int) -> String {

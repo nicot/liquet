@@ -17,7 +17,7 @@ class Del: NSObject, NSTextFieldDelegate {
         self.dataSource = d
     }
 
-    func controlTextDidEndEditing(_ obj: Notification) {
+    func controlTextDidChange(_ obj: Notification) {
         if let textField = obj.object as? NSTextField {
             self.dataSource.filtered = Filtered(lines: self.dataSource.contents, filter: textField.stringValue)
         }
