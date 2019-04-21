@@ -810,32 +810,22 @@
                                 </scroller>
                             </scrollView>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AvE-4P-A3T">
-                                <rect key="frame" x="40" y="5" width="435" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="BAL-If-nDY">
+                                <rect key="frame" x="5" y="5" width="470" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Filters" drawsBackground="YES" id="BAL-If-nDY">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GoX-OX-Nj5">
-                                <rect key="frame" x="3" y="9" width="35" height="17"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Filter" id="6te-Yn-OSP">
-                                    <font key="font" usesAppearanceFont="YES"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="AvE-4P-A3T" firstAttribute="top" secondItem="NJY-JG-jpD" secondAttribute="bottom" constant="5" id="8K0-H0-Ybr"/>
-                            <constraint firstItem="AvE-4P-A3T" firstAttribute="leading" secondItem="GoX-OX-Nj5" secondAttribute="trailing" constant="4" id="EEh-K4-hCl"/>
                             <constraint firstAttribute="trailing" secondItem="NJY-JG-jpD" secondAttribute="trailing" id="Q5S-7P-fBj"/>
+                            <constraint firstItem="AvE-4P-A3T" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="5" id="RVC-b6-BHM"/>
                             <constraint firstItem="NJY-JG-jpD" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="SBE-Ev-cDs"/>
-                            <constraint firstItem="GoX-OX-Nj5" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="5" id="Zcs-wY-ciH"/>
                             <constraint firstAttribute="trailing" secondItem="AvE-4P-A3T" secondAttribute="trailing" constant="5" id="edj-Zx-93V"/>
                             <constraint firstAttribute="bottom" secondItem="AvE-4P-A3T" secondAttribute="bottom" constant="5" id="hh7-YP-DHo"/>
                             <constraint firstItem="NJY-JG-jpD" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="hv8-iC-Kza"/>
-                            <constraint firstAttribute="bottom" secondItem="GoX-OX-Nj5" secondAttribute="bottom" constant="9" id="ibH-V7-WnH"/>
                             <constraint firstAttribute="trailing" secondItem="NJY-JG-jpD" secondAttribute="trailing" id="jLQ-de-2hQ"/>
                             <constraint firstItem="NJY-JG-jpD" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="obz-HN-pAf"/>
                             <constraint firstItem="NJY-JG-jpD" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="u1f-4p-reV"/>

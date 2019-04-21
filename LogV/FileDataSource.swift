@@ -10,6 +10,7 @@ import Cocoa
 
 func loadFileContents(from file: FileWrapper) -> [String] {
     let data: Data = file.regularFileContents!
+    // TODO we shouldn't unwrap here.
     let text = String(data: data, encoding: .utf8)!
     return text.components(separatedBy: "\n")
 }
@@ -21,7 +22,7 @@ struct Line {
 
 func runFilter(content: [String], filter: String) -> [Line] {
     var lines: [Line] = []
-    
+
     if filter == "" {
         return content.enumerated().map { Line(nu: $0, text: $1) }
     }
