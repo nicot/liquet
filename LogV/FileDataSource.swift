@@ -8,13 +8,6 @@
 
 import Cocoa
 
-func loadFileContents(from file: FileWrapper) -> [String] {
-    let data: Data = file.regularFileContents!
-    // TODO we shouldn't unwrap here.
-    let text = String(data: data, encoding: .utf8)!
-    return text.components(separatedBy: "\n")
-}
-
 struct Line {
     let nu: Int
     let text: String
@@ -36,55 +29,28 @@ func runFilter(content: [String], filter: String) -> [Line] {
     return lines
 }
 
-class Filtered {
-    let matchingLines: [Line]
-    let rowCount: Int
-
-    init(
-        lines: [String],
-        filter: String
-    ) {
-        self.matchingLines = runFilter(content: lines, filter: filter)
-        self.rowCount = matchingLines.count
+class FileDataSource: NSObject, NSTableViewDataSource {
+    var filter: String = "" {
+        didSet {
+            // do some stuff.
+        }
     }
-
-    func getLineNumber(viewRow: Int) -> Int {
-        return matchingLines[viewRow].nu
-    }
-
-    func getLine(viewRow: Int) -> String {
-        return matchingLines[viewRow].text
-    }
-}
-
-class FileDataSource: NSObject, NSTableViewDataSource, NSTableViewDelegate {
-    let contents: [String]
-    var filtered: Filtered
+    
+    let data: Data
 
     init(from fileWrapper: FileWrapper) {
-        self.contents = loadFileContents(from: fileWrapper)
-        self.filtered = Filtered(lines: contents, filter: "")
+        self.data = fileWrapper.regularFileContents!
     }
 
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return filtered.rowCount
+        return 3
     }
 
-    func tableView(_ tableView: NSTableView,
-                   viewFor tableColumn: NSTableColumn?,
-                   row: Int) -> NSView? {
-        guard let col = tableColumn else { return nil }
-
-        let v = tableView.makeView(withIdentifier: col.identifier, owner: tableView)
+    func getLineNumber(viewRow: Int) -> Int {
+        return viewRow
+    }
     
-        if let t = v?.subviews[0] as? NSTextField {
-            if (col.identifier == NSUserInterfaceItemIdentifier("Numbers")) {
-                t.stringValue = String(filtered.getLineNumber(viewRow: row) + 1)
-            } else if (col.identifier == NSUserInterfaceItemIdentifier("Lines")) {
-                t.stringValue = filtered.getLine(viewRow: row)
-            }
-        }
-        
-        return v
+    func getLine(viewRow: Int) -> String {
+        return "foo"
     }
 }

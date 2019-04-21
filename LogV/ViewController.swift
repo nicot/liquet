@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class Del: NSObject, NSTextFieldDelegate {
+class FilterTextFieldDelegate: NSObject, NSTextFieldDelegate {
     let table: NSTableView
     let dataSource: FileDataSource
 
@@ -20,28 +20,45 @@ class Del: NSObject, NSTextFieldDelegate {
     // I'm not sure if this is better to do on change or on enter. (controlTextDidChange vs controlTextDidEndEditing)
     func controlTextDidEndEditing(_ obj: Notification) {
         if let textField = obj.object as? NSTextField {
-            startLoadingAnimation()
-            self.dataSource.filtered = Filtered(lines: self.dataSource.contents, filter: textField.stringValue)
+            self.dataSource.filter = textField.stringValue
 
             table.reloadData()
-            stopLoadingAnimation()
         }
     }
+}
+
+class LogTableViewDelegate: NSObject, NSTableViewDelegate {
+    let dataSource: FileDataSource
     
-    func startLoadingAnimation() {
-        
+    init(dataSource: FileDataSource) {
+        self.dataSource = dataSource
     }
-    
-    func stopLoadingAnimation() {
+
+    func tableView(_ tableView: NSTableView,
+                   viewFor tableColumn: NSTableColumn?,
+                   row: Int) -> NSView? {
+        guard let col = tableColumn else { return nil }
         
+        let v = tableView.makeView(withIdentifier: col.identifier, owner: tableView)
+        
+        if let t = v?.subviews[0] as? NSTextField {
+            if (col.identifier == NSUserInterfaceItemIdentifier("Numbers")) {
+                t.stringValue = String(self.dataSource.getLineNumber(viewRow: row) + 1)
+            } else if (col.identifier == NSUserInterfaceItemIdentifier("Lines")) {
+                t.stringValue = self.dataSource.getLine(viewRow: row)
+            }
+        }
+        
+        return v
     }
 }
 
 class ViewController: NSViewController {
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var input: NSTextField!
-    
-    var delegate: Del?
+
+    var filterDelegate: FilterTextFieldDelegate?
+    var viewDelegate: LogTableViewDelegate?
     
     var data: FileDataSource? {
         didSet {
@@ -52,12 +69,13 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        guard let data = self.data else { return }
+
         self.tableView.dataSource = data
-        self.tableView.delegate = data
-        if let d = data {
-            self.delegate = Del(tableView, d)
-            input.delegate = self.delegate
-        }
+        self.viewDelegate = LogTableViewDelegate(dataSource: data)
+        self.tableView.delegate = self.viewDelegate
+        self.filterDelegate = FilterTextFieldDelegate(tableView, data)
+        input.delegate = self.filterDelegate
     }
 }
 
