@@ -20,10 +20,20 @@ class Del: NSObject, NSTextFieldDelegate {
     // I'm not sure if this is better to do on change or on enter. (controlTextDidChange vs controlTextDidEndEditing)
     func controlTextDidEndEditing(_ obj: Notification) {
         if let textField = obj.object as? NSTextField {
+            startLoadingAnimation()
             self.dataSource.filtered = Filtered(lines: self.dataSource.contents, filter: textField.stringValue)
-        }
 
-        table.reloadData()
+            table.reloadData()
+            stopLoadingAnimation()
+        }
+    }
+    
+    func startLoadingAnimation() {
+        
+    }
+    
+    func stopLoadingAnimation() {
+        
     }
 }
 

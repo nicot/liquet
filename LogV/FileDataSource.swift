@@ -60,7 +60,7 @@ class Filtered {
 class FileDataSource: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     let contents: [String]
     var filtered: Filtered
-    
+
     init(from fileWrapper: FileWrapper) {
         self.contents = loadFileContents(from: fileWrapper)
         self.filtered = Filtered(lines: contents, filter: "")
@@ -69,8 +69,6 @@ class FileDataSource: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return filtered.rowCount
     }
-
-    let attr = [NSAttributedString.Key.font: NSFont(name: "Menlo", size: CGFloat(12))!]
 
     func tableView(_ tableView: NSTableView,
                    viewFor tableColumn: NSTableColumn?,
