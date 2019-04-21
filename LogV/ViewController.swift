@@ -17,8 +17,8 @@ class Del: NSObject, NSTextFieldDelegate {
         self.dataSource = d
     }
 
-    // I'm not sure if this is better to do on change or on enter.
-    func controlTextDidChange(_ obj: Notification) {
+    // I'm not sure if this is better to do on change or on enter. (controlTextDidChange vs controlTextDidEndEditing)
+    func controlTextDidEndEditing(_ obj: Notification) {
         if let textField = obj.object as? NSTextField {
             self.dataSource.filtered = Filtered(lines: self.dataSource.contents, filter: textField.stringValue)
         }

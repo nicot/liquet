@@ -38,12 +38,14 @@ func runFilter(content: [String], filter: String) -> [Line] {
 
 class Filtered {
     let matchingLines: [Line]
+    let rowCount: Int
 
     init(
         lines: [String],
         filter: String
     ) {
         self.matchingLines = runFilter(content: lines, filter: filter)
+        self.rowCount = matchingLines.count
     }
 
     func getLineNumber(viewRow: Int) -> Int {
@@ -65,7 +67,7 @@ class FileDataSource: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     }
 
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return filtered.matchingLines.count
+        return filtered.rowCount
     }
 
     let attr = [NSAttributedString.Key.font: NSFont(name: "Menlo", size: CGFloat(12))!]
