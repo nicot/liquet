@@ -27,7 +27,9 @@ class LogVTests: XCTestCase {
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
-            // Put the code you want to measure the time of here.
+            for i in 1...100000 {
+                print("foo")
+            }
         }
     }
 

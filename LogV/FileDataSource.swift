@@ -35,7 +35,7 @@ class FileDataSource: NSObject, NSTableViewDataSource {
             // do some stuff.
         }
     }
-    
+
     let data: Data
 
     init(from fileWrapper: FileWrapper) {
@@ -49,7 +49,7 @@ class FileDataSource: NSObject, NSTableViewDataSource {
     func getLineNumber(viewRow: Int) -> Int {
         return viewRow
     }
-    
+
     func getLine(viewRow: Int) -> String {
         return "foo"
     }
