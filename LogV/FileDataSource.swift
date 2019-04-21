@@ -76,17 +76,17 @@ class FileDataSource: NSObject, NSTableViewDataSource, NSTableViewDelegate {
                    viewFor tableColumn: NSTableColumn?,
                    row: Int) -> NSView? {
         guard let col = tableColumn else { return nil }
-        
-        let s: String
-        if (col.identifier == NSUserInterfaceItemIdentifier("Numbers")) {
-            s = String(filtered.getLineNumber(viewRow: row) + 1)
-        } else if (col.identifier == NSUserInterfaceItemIdentifier("Lines")) {
-            s = filtered.getLine(viewRow: row)
-        } else {
-            s = "Uh oh."
+
+        let v = tableView.makeView(withIdentifier: col.identifier, owner: tableView)
+    
+        if let t = v?.subviews[0] as? NSTextField {
+            if (col.identifier == NSUserInterfaceItemIdentifier("Numbers")) {
+                t.stringValue = String(filtered.getLineNumber(viewRow: row) + 1)
+            } else if (col.identifier == NSUserInterfaceItemIdentifier("Lines")) {
+                t.stringValue = filtered.getLine(viewRow: row)
+            }
         }
         
-        let l = NSAttributedString(string: s, attributes: attr)
-        return NSTextField(labelWithAttributedString: l)
+        return v
     }
 }
