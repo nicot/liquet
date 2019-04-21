@@ -45,11 +45,11 @@ class Filtered {
     ) {
         self.matchingLines = runFilter(content: lines, filter: filter)
     }
-    
+
     func getLineNumber(viewRow: Int) -> Int {
-        return matchingLines[viewRow].nu + 1
+        return matchingLines[viewRow].nu
     }
-    
+
     func getLine(viewRow: Int) -> String {
         return matchingLines[viewRow].text
     }
@@ -77,7 +77,7 @@ class FileDataSource: NSObject, NSTableViewDataSource, NSTableViewDelegate {
         
         let s: String
         if (col.identifier == NSUserInterfaceItemIdentifier("Numbers")) {
-            s = String(filtered.getLineNumber(viewRow: row))
+            s = String(filtered.getLineNumber(viewRow: row) + 1)
         } else if (col.identifier == NSUserInterfaceItemIdentifier("Lines")) {
             s = filtered.getLine(viewRow: row)
         } else {
