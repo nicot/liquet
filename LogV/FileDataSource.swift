@@ -30,7 +30,7 @@ func lineCount(data: Data) -> Int {
 }
 
 struct Filter {
-    
+    var text: String
 }
 
 class Lines {
@@ -38,10 +38,11 @@ class Lines {
     var maxViewLine: Int = 0
     var maxPos: Int = 0
     let data: Data
-    let filter: Filter = Filter()
+    var filter: Filter
     
-    init(_ data: Data) {
+    init(_ data: Data, filter: String) {
         self.data = data
+        self.filter = Filter(text: filter)
     }
     
     func getLine(for viewRow: Int) -> Line {
@@ -84,9 +85,9 @@ class Lines {
 }
 
 class FileDataSource: NSObject, NSTableViewDataSource {
-    var filter: String = "" {
+    var filter: String {
         didSet {
-            // do some stuff.
+            lines.filter.text = filter
         }
     }
 
@@ -95,7 +96,8 @@ class FileDataSource: NSObject, NSTableViewDataSource {
 
     init(from fileWrapper: FileWrapper) {
         self.data = fileWrapper.regularFileContents!
-        self.lines = Lines(data)
+        self.filter = ""
+        self.lines = Lines(data, filter: self.filter)
     }
 
     func numberOfRows(in tableView: NSTableView) -> Int {
