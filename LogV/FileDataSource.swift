@@ -34,15 +34,18 @@ struct Filter {
 }
 
 class Lines {
-    var lines: [Line]
-    let maxPos: Int
-    var maxViewLine: Int
+    var lines: [Line] = []
+    var maxViewLine: Int = 0
+    var maxPos: Int = 0
     let data: Data
-    let filter: Filter
+    let filter: Filter = Filter()
+    
+    init(_ data: Data) {
+        self.data = data
+    }
     
     func getLine(for viewRow: Int) -> Line {
         while (viewRow >= lines.count && maxPos < data.count) {
-            maxViewLine += 1
             let slice = data[maxPos ..< data.count]
             let maybeLineEnd = slice.firstIndex(of: newline)
             let lineEnd: Int
@@ -52,13 +55,20 @@ class Lines {
                 lineEnd = data.count
             }
 
-            let line = slice[maxPos...lineEnd]
+            let line = slice[maxPos..<lineEnd]
 
             if matches(line) {
-                // TODO figure out a better way to decode this and just show <?> chars
+                // TODO figure out a better way to decode this and show <?> chars
                 let t = String(data: line, encoding: .utf8)!
                 lines.append(Line(nu: maxViewLine, text: t))
             }
+
+            maxViewLine += 1
+            maxPos = lineEnd + 1
+        }
+        
+        if viewRow >= lines.count {
+            return Line(nu: 0, text: "foo")
         }
 
         return lines[viewRow]
@@ -69,7 +79,7 @@ class Lines {
     }
 
     func matches(_ line: Data) -> Bool {
-        
+        return true
     }
 }
 
@@ -85,6 +95,7 @@ class FileDataSource: NSObject, NSTableViewDataSource {
 
     init(from fileWrapper: FileWrapper) {
         self.data = fileWrapper.regularFileContents!
+        self.lines = Lines(data)
     }
 
     func numberOfRows(in tableView: NSTableView) -> Int {
