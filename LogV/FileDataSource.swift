@@ -30,7 +30,15 @@ func lineCount(data: Data) -> Int {
 }
 
 struct Filter {
-    var text: String
+    let text: String
+}
+
+func matches(_ text: String, filter: Filter) -> Bool {
+    if filter.text == "" {
+        return true
+    }
+
+    return text.contains(filter.text)
 }
 
 class Lines {
@@ -38,13 +46,13 @@ class Lines {
     var maxViewLine: Int = 0
     var maxPos: Int = 0
     let data: Data
-    var filter: Filter
-    
+    let filter: Filter
+
     init(_ data: Data, filter: String) {
         self.data = data
         self.filter = Filter(text: filter)
     }
-    
+
     func getLine(for viewRow: Int) -> Line {
         while (viewRow >= lines.count && maxPos < data.count) {
             let slice = data[maxPos ..< data.count]
@@ -57,10 +65,9 @@ class Lines {
             }
 
             let line = slice[maxPos..<lineEnd]
-
-            if matches(line) {
-                // TODO figure out a better way to decode this and show <?> chars
-                let t = String(data: line, encoding: .utf8)!
+            // TODO figure out a better way to decode this and show <?> chars
+            let t = String(data: line, encoding: .utf8)!
+            if matches(t, filter: filter) {
                 lines.append(Line(nu: maxViewLine, text: t))
             }
 
@@ -74,25 +81,21 @@ class Lines {
 
         return lines[viewRow]
     }
-    
+
     func approxCount() -> Int {
         return 100
-    }
-
-    func matches(_ line: Data) -> Bool {
-        return true
     }
 }
 
 class FileDataSource: NSObject, NSTableViewDataSource {
     var filter: String {
         didSet {
-            lines.filter.text = filter
+            self.lines = Lines(data, filter: self.filter)
         }
     }
 
     let data: Data
-    let lines: Lines
+    var lines: Lines
 
     init(from fileWrapper: FileWrapper) {
         self.data = fileWrapper.regularFileContents!
