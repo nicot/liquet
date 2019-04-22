@@ -13,22 +13,6 @@ struct Line {
     let text: String
 }
 
-func runFilter(content: [String], filter: String) -> [Line] {
-    var lines: [Line] = []
-
-    if filter == "" {
-        return content.enumerated().map { Line(nu: $0, text: $1) }
-    }
-
-    for (index, line) in content.enumerated() {
-        if (line.contains(filter)) {
-            lines.append(Line(nu: index, text: line))
-        }
-    }
-
-    return lines
-}
-
 let newline = UInt8(0x0a)
 
 func lineCount(data: Data) -> Int {
@@ -45,6 +29,50 @@ func lineCount(data: Data) -> Int {
     }
 }
 
+struct Filter {
+    
+}
+
+class Lines {
+    var lines: [Line]
+    let maxPos: Int
+    var maxViewLine: Int
+    let data: Data
+    let filter: Filter
+    
+    func getLine(for viewRow: Int) -> Line {
+        while (viewRow >= lines.count && maxPos < data.count) {
+            maxViewLine += 1
+            let slice = data[maxPos ..< data.count]
+            let maybeLineEnd = slice.firstIndex(of: newline)
+            let lineEnd: Int
+            if let l = maybeLineEnd {
+                lineEnd = l
+            } else {
+                lineEnd = data.count
+            }
+
+            let line = slice[maxPos...lineEnd]
+
+            if matches(line) {
+                // TODO figure out a better way to decode this and just show <?> chars
+                let t = String(data: line, encoding: .utf8)!
+                lines.append(Line(nu: maxViewLine, text: t))
+            }
+        }
+
+        return lines[viewRow]
+    }
+    
+    func approxCount() -> Int {
+        return 100
+    }
+
+    func matches(_ line: Data) -> Bool {
+        
+    }
+}
+
 class FileDataSource: NSObject, NSTableViewDataSource {
     var filter: String = "" {
         didSet {
@@ -53,20 +81,21 @@ class FileDataSource: NSObject, NSTableViewDataSource {
     }
 
     let data: Data
+    let lines: Lines
 
     init(from fileWrapper: FileWrapper) {
         self.data = fileWrapper.regularFileContents!
     }
 
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return lineCount(data: data)
+        return lines.approxCount()
     }
 
     func getLineNumber(viewRow: Int) -> Int {
-        return viewRow
+        return lines.getLine(for: viewRow).nu
     }
 
     func getLine(viewRow: Int) -> String {
-        return "foo"
+        return lines.getLine(for: viewRow).text
     }
 }
