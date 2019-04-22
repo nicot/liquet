@@ -33,6 +33,9 @@ struct Filter {
     let text: String
 }
 
+// Maybe use Aho-Corasick?
+// https://en.wikipedia.org/wiki/Aho-Corasick_algorithm
+//
 func matches(_ text: String, filter: Filter) -> Bool {
     if filter.text == "" {
         return true
@@ -74,7 +77,7 @@ class Lines {
             maxViewLine += 1
             maxPos = lineEnd + 1
         }
-        
+
         if viewRow >= lines.count {
             return Line(nu: 0, text: "foo")
         }
@@ -83,7 +86,16 @@ class Lines {
     }
 
     func approxCount() -> Int {
-        return 100
+        if maxPos == data.count {
+            return maxViewLine
+        }
+        
+        if maxViewLine < 300 {
+            _ = getLine(for: 300)
+            return maxViewLine
+        }
+
+        return data.count / 100
     }
 }
 

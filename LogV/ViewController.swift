@@ -29,7 +29,7 @@ class FilterTextFieldDelegate: NSObject, NSTextFieldDelegate {
 
 class LogTableViewDelegate: NSObject, NSTableViewDelegate {
     let dataSource: FileDataSource
-    
+
     init(dataSource: FileDataSource) {
         self.dataSource = dataSource
     }
@@ -40,7 +40,7 @@ class LogTableViewDelegate: NSObject, NSTableViewDelegate {
         guard let col = tableColumn else { return nil }
         
         let v = tableView.makeView(withIdentifier: col.identifier, owner: tableView)
-        
+
         if let t = v?.subviews[0] as? NSTextField {
             if (col.identifier == NSUserInterfaceItemIdentifier("Numbers")) {
                 t.stringValue = String(self.dataSource.getLineNumber(viewRow: row) + 1)
