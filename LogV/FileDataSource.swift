@@ -29,6 +29,22 @@ func runFilter(content: [String], filter: String) -> [Line] {
     return lines
 }
 
+let newline = UInt8(0x0a)
+
+func lineCount(data: Data) -> Int {
+    var i = 0
+    var startIndex = 0
+    while true {
+        let slice = data[startIndex ..< data.count]
+        if let n = slice.firstIndex(of: newline) {
+            i += 1
+            startIndex = n + 1
+        } else {
+            return i
+        }
+    }
+}
+
 class FileDataSource: NSObject, NSTableViewDataSource {
     var filter: String = "" {
         didSet {
@@ -43,7 +59,7 @@ class FileDataSource: NSObject, NSTableViewDataSource {
     }
 
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return 3
+        return lineCount(data: data)
     }
 
     func getLineNumber(viewRow: Int) -> Int {
